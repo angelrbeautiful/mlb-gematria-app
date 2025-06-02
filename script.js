@@ -1,8 +1,15 @@
-document.getElementById("start-scan").addEventListener("click", () => {
-  const results = document.getElementById("results");
-  results.innerHTML = "<p>Scanning for cosmic alignment...🔮</p>";
-  // Fake delay for fun effect
+
+document.getElementById("scanButton").addEventListener("click", () => {
+  document.getElementById("status").textContent = "Scanning for cosmic alignment...🔮";
+
+  // Simulated delay and result
   setTimeout(() => {
-    results.innerHTML += "<p>⚾ Home Run Energy Detected! 🌟</p>";
+    const detected = Math.random() > 0.5;
+    document.getElementById("status").textContent = detected
+      ? "⚾ Home Run Energy Detected! 🌟"
+      : "No cosmic alignment detected.";
+    document.getElementById("results").innerHTML = detected
+      ? "<p>🔥 Player Match: Jersey #27 — Career HR: 137 — Season HR: 9</p>"
+      : "";
   }, 2000);
 });

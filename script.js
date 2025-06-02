@@ -37,13 +37,29 @@ function highlightSelectedGame(button) {
 }
 
 // Handle scan button click
-startScanBtn.onclick = () => {
+startScanBtn.onclick = async () => {
   if (!selectedGame) {
     resultsDiv.innerHTML = "<p>⚠️ Please select a game first.</p>";
-  } else {
-    resultsDiv.innerHTML += "<p>🔍 Scanning game data... (to be implemented)</p>";
+    return;
+  }
+
+  const gameId = selectedGame.id;
+  const summaryUrl = `https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/summary?event=${gameId}`;
+
+  try {
+    const res = await fetch(summaryUrl);
+    const summary = await res.json();
+    const status = summary.header?.competitions?.[0]?.status?.type?.name || "UNKNOWN";
+
+    if (status !== "STATUS_IN_PROGRESS") {
+      resultsDiv.innerHTML = `<p>⏳ <strong>${selectedGame.name}</strong> is not live yet.<br>Come back at game time!</p>`;
+      return;
+    }
+
+    resultsDiv.innerHTML = `<p>🔍 Scanning <strong>${selectedGame.name}</strong>... game is live!</p>`;
+    // 👇 Future scanning logic will go here
+  } catch (error) {
+    resultsDiv.innerHTML = `<p>⚠️ Error fetching game status. Try again later.</p>`;
+    console.error("Error during scan:", error);
   }
 };
-
-// Automatically load games when page opens
-window.onload = loadGames;

@@ -3,15 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <title>Cosmic Sports Lite</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #101820;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #f2aa4c;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+      width: 250px;
+      border-radius: 5px;
+      border: 1px solid #f2aa4c;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #f2aa4c;
+      color: #101820;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .card {
+      background-color: #1a1a1a;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+      width: 300px;
+      text-align: left;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: #f2aa4c;
+    }
+
+    .card p {
+      margin: 6px 0;
+    }
+  </style>
 </head>
 <body>
-  <div class="app">
-    <h1>Cosmic Sports Lite</h1>
-    <input type="text" id="playerSearch" placeholder="Search player...">
-    <button onclick="runSearch()">Decode</button>
-    <div id="results"></div>
-  </div>
+  <h1>Cosmic Sports Lite</h1>
+  <input id="playerInput" type="text" placeholder="Enter player name (e.g. Kyle Schwarber)">
+  <button onclick="decodePlayer()">Decode</button>
+  <div id="result"></div>
+
   <script src="app.js"></script>
 </body>
 </html>

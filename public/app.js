@@ -1,7 +1,6 @@
 let playerData = {};
 
-fetch('/lite_cosmic_player_data.json')
-  .then(response => response.json())
+fetch('lite_cosmic_player_data.json')  .then(response => response.json())
   .then(data => {
     playerData = data;
   })

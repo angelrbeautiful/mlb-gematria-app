@@ -1,37 +1,44 @@
-
 body {
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: #fff;
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #0e0b1b;
-  color: white;
-  text-align: center;
+  padding: 0;
 }
-
-.container {
-  margin: 100px auto;
-  padding: 30px;
-  max-width: 400px;
-  border-radius: 16px;
-  background: #1a1333;
-  box-shadow: 0 0 30px 5px #a855f7;
+#app {
+  padding: 20px;
 }
-
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.controls {
+  margin-bottom: 20px;
+}
+input, button {
+  padding: 10px;
+  font-size: 1rem;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
 button {
-  background: #e879f9;
+  background-color: #28a745;
+  color: white;
   border: none;
-  padding: 12px 20px;
-  font-size: 1em;
-  border-radius: 12px;
   cursor: pointer;
 }
-
-#status {
+#dateNumerology, #searchResults, #liveLog, #output {
   margin-top: 20px;
-  font-size: 1.1em;
 }
-
-#results {
-  margin-top: 20px;
-  padding-top: 10px;
-  border-top: 1px solid #ccc;
+.player-card {
+  border: 1px solid #444;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+.match-tag {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 1.2rem;
 }

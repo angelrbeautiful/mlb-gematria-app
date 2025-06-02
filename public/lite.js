@@ -1,37 +1,28 @@
-let playerData = {};
-
-fetch('lite_cosmic_player_data.json')
-  .then(response => response.json())
-  .then(data => {
-    playerData = data;
-  })
-  .catch(error => {
-    console.error('Error loading player data:', error);
-  });
-
-function decodePlayer() {
-  const input = document.getElementById("playerInput").value.trim().toLowerCase();
+async function decodePlayer() {
+  const playerName = document.getElementById("playerInput").value.trim().toLowerCase();
   const resultDiv = document.getElementById("result");
 
-  if (!input) {
-    resultDiv.textContent = "Please enter a player name.";
-    return;
-  }
+  try {
+    const response = await fetch("players.json");
+    const data = await response.json();
 
-  const player = playerData.players.find(p => p.name.toLowerCase() === input);
+    const match = data.players.find(p => p.name.toLowerCase() === playerName);
 
-  if (player) {
-    resultDiv.innerHTML = `
-      <div class="card">
-        <h2>${player.name}</h2>
-        <p><strong>Sport:</strong> ${player.sport}</p>
-        <p><strong>Jersey #:</strong> ${player.jersey}</p>
-        <p><strong>Career Total:</strong> ${player.careerStat}</p>
-        <p><strong>Season Total:</strong> ${player.seasonStat}</p>
-        <p><strong>Birthdate:</strong> ${player.birthdate}</p>
-      </div>
-    `;
-  } else {
-    resultDiv.textContent = "Player not found.";
+    if (match) {
+      resultDiv.innerHTML = `
+        <div class="card">
+          <h3>${match.name}</h3>
+          <p>Jersey #: ${match.jersey}</p>
+          <p>Career HRs: ${match.careerHR}</p>
+          <p>Season HRs: ${match.seasonHR}</p>
+          <p>Birthdate: ${match.birthdate}</p>
+        </div>
+      `;
+    } else {
+      resultDiv.innerHTML = `<p>No match found for "${playerName}"</p>`;
+    }
+  } catch (err) {
+    resultDiv.innerHTML = `<p>Error loading player data.</p>`;
+    console.error(err);
   }
 }

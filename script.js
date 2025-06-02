@@ -1,27 +1,21 @@
-document.getElementById('start-scan').addEventListener('click', async () => {
-  const resultsDiv = document.getElementById('results');
-  resultsDiv.innerHTML = '🔄 Scanning for live MLB games...';
+async function loadGames() {
+  const response = await fetch('https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard');
+  const data = await response.json();
+  const events = data.events || [];
+  const gameList = document.getElementById('gameList');
+  gameList.innerHTML = '';
 
-  try {
-    const response = await fetch('https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard');
-    const data = await response.json();
-    const games = data.events;
+  events.forEach((event, index) => {
+    const button = document.createElement('button');
+    button.textContent = event.name;
+    button.onclick = () => selectGame(index, event);
+    gameList.appendChild(button);
+  });
+}
 
-    if (games.length === 0) {
-      resultsDiv.innerHTML = '😞 No games found.';
-      return;
-    }
+function selectGame(index, event) {
+  alert(`You selected: ${event.name}`);
+  // Later we will add gematria scanning here
+}
 
-    const gameList = games.map((game) => {
-      const home = game.competitions[0].competitors.find(t => t.homeAway === 'home').team.displayName;
-      const away = game.competitions[0].competitors.find(t => t.homeAway === 'away').team.displayName;
-      const time = new Date(game.date).toLocaleTimeString();
-      return `🧿 ${away} at ${home} - ${time}`;
-    }).join('<br><br>');
-
-    resultsDiv.innerHTML = `<strong>🔮 Detected Games:</strong><br><br>${gameList}`;
-  } catch (error) {
-    console.error('Error fetching games:', error);
-    resultsDiv.innerHTML = '⚠️ Failed to fetch games.';
-  }
-});
+window.onload = loadGames;

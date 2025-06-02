@@ -1,25 +1,15 @@
-
 body {
-  background-color: #111;
-  color: white;
-  font-family: sans-serif;
+  font-family: Arial, sans-serif;
+  background: #0e0e0e;
+  color: #ffffff;
   text-align: center;
   padding: 20px;
 }
-input {
+input, button {
+  margin: 10px;
   padding: 10px;
-  margin: 10px;
+  font-size: 16px;
 }
-button {
-  padding: 10px 20px;
-  margin: 10px;
-  background-color: green;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-#output {
+#results {
   margin-top: 20px;
-  text-align: left;
-  display: inline-block;
 }

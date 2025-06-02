@@ -37,4 +37,13 @@ function highlightSelectedGame(button) {
 }
 
 // Handle scan button click
-startScanBtn.onclick = ()
+startScanBtn.onclick = () => {
+  if (!selectedGame) {
+    resultsDiv.innerHTML = "<p>⚠️ Please select a game first.</p>";
+  } else {
+    resultsDiv.innerHTML += "<p>🔍 Scanning game data... (to be implemented)</p>";
+  }
+};
+
+// Automatically load games when page opens
+window.onload = loadGames;

@@ -6,68 +6,32 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #101820;
-      color: #ffffff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       padding: 20px;
+      background: #f0f0f0;
     }
-
     h1 {
-      color: #f2aa4c;
+      color: #333;
     }
-
-    input {
+    input, button {
       padding: 10px;
+      margin: 5px 0;
       font-size: 16px;
-      width: 250px;
-      border-radius: 5px;
-      border: 1px solid #f2aa4c;
-      margin-bottom: 10px;
     }
-
-    button {
-      padding: 10px 20px;
-      background-color: #f2aa4c;
-      color: #101820;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
     .card {
-      background-color: #1a1a1a;
-      padding: 20px;
       margin-top: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-      width: 300px;
-      text-align: left;
-    }
-
-    .card h2 {
-      margin-top: 0;
-      color: #f2aa4c;
-    }
-
-    .card p {
-      margin: 6px 0;
+      padding: 15px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
   </style>
 </head>
 <body>
-  <h1>Cosmic MLB Decoder</h1>
-
-  <input type="text" id="playerInput" placeholder="Enter player name" />
-  <button onclick="decodePlayer()">Decode</button>
-
-  <div id="result"></div>
   <h1>Cosmic Sports Lite</h1>
   <input id="playerInput" type="text" placeholder="Enter player name (e.g. Kyle Schwarber)">
   <button onclick="decodePlayer()">Decode</button>
   <div id="result"></div>
 
-<script src="lite.js"></script></body>
+  <script src="lite.js"></script>
+</body>
 </html>

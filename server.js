@@ -1,23 +1,16 @@
-
 const express = require('express');
-const app = express();
-const fs = require('fs');
 const path = require('path');
+const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(express.static('public'));
-app.use(express.json());
+// ✅ Tell server to serve files from the "public" folder
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/api/player/:name', (req, res) => {
-    const players = JSON.parse(fs.readFileSync('./players.json'));
-    const player = players.find(p => p.name.toLowerCase() === req.params.name.toLowerCase());
-    if (player) {
-        res.json(player);
-    } else {
-        res.status(404).json({ error: 'Player not found' });
-    }
+// ✅ For any page, load index.html from "public"
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });

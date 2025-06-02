@@ -1,34 +1,37 @@
-function runSearch() {
-  const name = document.getElementById("playerSearch").value.toLowerCase();
-  const resultBox = document.getElementById("results");
-  if (players[name]) {
-    const p = players[name];
-    resultBox.innerHTML = `
-      <h2>${p.name}</h2>
-      <p>Jersey: ${p.jersey}, Career HRs: ${p.careerHR}, Season HRs: ${p.seasonHR}</p>
-      <p>Props: Hits ${p.hits}, RBIs ${p.rbis}, TB ${p.tb}, Runs ${p.runs}</p>
-      <p>Numerology Match: ${p.numerology.join(", ")}</p>
-      <p>Jewish Civil Match: ${p.jewishCivil}</p>
-      <p>Jewish Religious Match: ${p.jewishReligious}</p>
+let playerData = {};
+
+fetch('lite_cosmic_player_data.json')
+  .then(response => response.json())
+  .then(data => {
+    playerData = data;
+  })
+  .catch(error => {
+    console.error('Error loading player data:', error);
+  });
+
+function decodePlayer() {
+  const input = document.getElementById("playerInput").value.trim().toLowerCase();
+  const resultDiv = document.getElementById("result");
+
+  if (!input) {
+    resultDiv.textContent = "Please enter a player name.";
+    return;
+  }
+
+  const player = playerData.players.find(p => p.name.toLowerCase() === input);
+
+  if (player) {
+    resultDiv.innerHTML = `
+      <div class="card">
+        <h2>${player.name}</h2>
+        <p><strong>Sport:</strong> ${player.sport}</p>
+        <p><strong>Jersey #:</strong> ${player.jersey}</p>
+        <p><strong>Career Total:</strong> ${player.careerStat}</p>
+        <p><strong>Season Total:</strong> ${player.seasonStat}</p>
+        <p><strong>Birthdate:</strong> ${player.birthdate}</p>
+      </div>
     `;
   } else {
-    resultBox.innerHTML = "<p>Player not found.</p>";
+    resultDiv.textContent = "Player not found.";
   }
 }
-
-const players = {
-  "aaron judge": {
-    name: "Aaron Judge",
-    jersey: 99,
-    careerHR: 270,
-    seasonHR: 18,
-    hits: 60,
-    rbis: 55,
-    tb: 120,
-    runs: 50,
-    numerology: ["99", "18", "270"],
-    jewishCivil: "Matched to 10/25 (Tishrei)",
-    jewishReligious: "Matched to 5/15 (Iyar)"
-  }
-  // Add more players here
-};

@@ -1,26 +1,19 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cosmic MLB App - Complete Lite</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cosmic MLB App - Lite</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="app">
-    <header>
-      <h1>Cosmic MLB App - Lite</h1>
-      <div class="controls">
-        <input type="text" id="playerSearch" placeholder="Search Player..." oninput="searchPlayer()" />
-        <button onclick="runLiteScan()">Run Gematria Lite Scan</button>
-        <button id="healthCheck" onclick="runHealthCheck()">Health 🔍</button>
-      </div>
-    </header>
-    <section id="dateNumerology"></section>
-    <section id="searchResults"></section>
-    <section id="liveLog"></section>
-    <main id="output"></main>
-  </div>
+  <h1>Cosmic MLB App - Lite</h1>
+  <input type="text" id="playerInput" placeholder="Enter player name" />
+  <button onclick="runLiteScan()">Run Gematria Lite Scan</button>
+  <button onclick="checkHealth()">Health 🔍</button>
+  <button onclick="scanLiveGame()">Scan Live Game 🛰️</button>
+  <div id="output"></div>
   <script src="script.js"></script>
 </body>
 </html>

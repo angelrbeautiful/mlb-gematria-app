@@ -1,16 +1,23 @@
-let playerData = {};
+let playerData = null; // Start as null
 
-fetch('lite_cosmic_player_data.json')  .then(response => response.json())
+fetch('lite_cosmic_player_data.json')
+  .then(response => response.json())
   .then(data => {
+    console.log('✅ Player data loaded');
     playerData = data;
   })
   .catch(error => {
-    console.error('Error loading player data:', error);
+    console.error('❌ Error loading player data:', error);
   });
 
 function decodePlayer() {
   const input = document.getElementById("playerInput").value.trim().toLowerCase();
   const resultDiv = document.getElementById("result");
+
+  if (!playerData) {
+    resultDiv.textContent = "⏳ Player data is still loading. Try again in a moment.";
+    return;
+  }
 
   if (!input) {
     resultDiv.textContent = "Please enter a player name.";

@@ -1,1 +1,0 @@
-Public assets like icons, logos, or audio go here.

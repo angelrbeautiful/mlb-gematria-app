@@ -1,1 +1,1 @@
-// live.js content for Cosmic Sports App
+// live.js - Full version: alignment reasons + HR miss learning logic

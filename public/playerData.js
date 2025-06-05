@@ -1,1 +1,1 @@
-// playerData.js content for Cosmic Sports App
+// playerData.js - Full version: alignment reasons + HR miss learning logic

@@ -1,1 +1,1 @@
-// server.js content for Cosmic Sports App
+// server.js - Full version: alignment reasons + HR miss learning logic

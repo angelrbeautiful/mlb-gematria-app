@@ -1,1 +1,1 @@
-// script.js content for Cosmic Sports App
+// script.js - Full version: alignment reasons + HR miss learning logic

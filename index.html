@@ -1,9 +1,19 @@
-<!-- Home with “Run Gematria Lite Scan” button -->
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><title>Cosmic MLB App</title><link rel="stylesheet" href="live-style.css"></head>
+<head>
+  <meta charset="UTF-8" />
+  <title>Cosmic MLB App</title>
+  <link rel="stylesheet" href="live-style.css" />
+</head>
 <body>
-<h1>Cosmic MLB App</h1>
-<button onclick="window.location.href='live.html'">Scan Live Game</button>
+  <h1>Cosmic MLB Lite App ⚾🪐</h1>
+  <input type="text" id="playerName" placeholder="Enter Player Name" />
+  <button onclick="runPregameDecode()">Run Gematria Lite Scan</button>
+  <div id="decodeResults"></div>
+  <br />
+  <button onclick="window.location.href='live.html'">Scan Live Game</button>
+
+  <script src="cosmicLite.js"></script>
+  <script src="decode.js"></script>
 </body>
 </html>

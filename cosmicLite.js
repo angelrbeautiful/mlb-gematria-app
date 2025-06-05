@@ -1,2 +1,4 @@
-// cosmicLite.js — Numerology Pulse Logic
-console.log('Cosmic engine initialized');
+function isGematriaAligned(player) {
+  // Dummy logic — replace with real gematria calc
+  return player.length % 2 === 0;
+}

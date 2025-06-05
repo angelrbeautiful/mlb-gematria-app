@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cosmic MLB Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>🌌 Cosmic MLB Tracker</h1>
+  <p>Real-time gematria + numerology scan</p>
+
+  <input type="text" id="playerSearch" placeholder="Search a player..." />
+  <button onclick="addPlayerFromSearch()">Add Player</button>
+
+  <div id="playerContainer">
+    <!-- Example player block -->
+    <div class="player" data-jersey="33" data-career-hr="85" data-season-hr="10" data-recent-hrs="1">Player Example</div>
+  </div>
+
+  <button onclick="runLiteScan()">Scan Live Game</button>
+
+  <script src="cosmicLite_phase2.js"></script>
+  <script>
+    function addPlayerFromSearch() {
+      const name = document.getElementById('playerSearch').value;
+      if (!name) return;
+
+      // For now, use dummy data — you can link this to a real lookup later
+      const playerBlock = document.createElement('div');
+      playerBlock.classList.add('player');
+      playerBlock.dataset.jersey = "27";        // fake jersey
+      playerBlock.dataset.careerHr = "137";     // fake career HR
+      playerBlock.dataset.seasonHr = "9";       // fake season HR
+      playerBlock.dataset.recentHrs = "1";      // fake recent HRs
+      playerBlock.innerText = name;
+
+      document.getElementById('playerContainer').appendChild(playerBlock);
+      runLiteScan();
+    }
+  </script>
+</body>
+</html>

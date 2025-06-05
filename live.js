@@ -1,1 +1,1 @@
-// live.js - Full version: alignment reasons + HR miss learning logic
+// live.js content with alignment breakdown

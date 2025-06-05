@@ -1,1 +1,1 @@
-// cosmicLite.js - Full version: alignment reasons + HR miss learning logic
+// cosmicLite.js content with alignment breakdown

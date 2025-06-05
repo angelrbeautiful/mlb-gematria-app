@@ -1,1 +1,1 @@
-// server.js - Full version: alignment reasons + HR miss learning logic
+// server.js content with alignment breakdown

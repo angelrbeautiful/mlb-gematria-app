@@ -1,1 +1,1 @@
-// script.js - Full version: alignment reasons + HR miss learning logic
+// script.js content with alignment breakdown
